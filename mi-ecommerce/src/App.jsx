@@ -7,12 +7,14 @@ import './components/ItemListContainer/Item';
 import './components/ItemListContainer/ItemListContainer';
 import './components/Cart/CartItem';
 import './components/Cart/CheckoutForm';
-import { NavBar } from './components/NavBar/NavBar';
-import {BrowserRouter, Routes, Route} from 'react-router-dom';
+/*import { NavBar } from './components/NavBar/NavBar';*/
+/*import {BrowserRouter, Routes, Route} from 'react-router-dom';*/
 import ItemDetail from './components/ItemDetailContainer/ItemDetail';
 import ItemDetail from './components/ItemDetailContainer/ItemCount';
 import Cart from './components/Cart/CartItem';
 import cart from './components/Cart/CheckoutForm';
+import { CartProvider } from './context/CartContext';
+import { ProductProvaider } from './Context/ProductContext';
 
 
 
@@ -24,16 +26,19 @@ import cart from './components/Cart/CheckoutForm';
     <BrowserRouter>
     <NavBar/>
     <Routes>
-      <Route exact path ='/' element={<ItemListContainer />} />
-      <Route exact path ='/ maquillaje' element={<ItmListContainer />} />
-      <Route exact path ='/ accesorios' element={<ItmListContainer />} />
-      <Route exact path ='/ perfumes' element={<ItmListContainer />} />
+      <Route exact path ='/' element={<Item />} />
+      <Route exact path ='/ maquillaje' element={<Item />} />
+      <Route exact path ='/ accesorios' element={<Item  />} />
+      <Route exact path ='/ perfumes' element={<Item  />} />
       <Route exact path="/product/:name" element={<ItemDetail />} />
       <Route exact path="/cart" element={<CartItem />} />
       <Route exact path="/product/:checkout" element={<CheckoutForm />} />
       <Route exact path ='*' element={<h1>404 not found </h1>} />
     </Routes>
     </BrowserRouter>
+    <CartProvider>
+      <CartWidget/>
+      </CartProvider>
     </>
   )
 }
