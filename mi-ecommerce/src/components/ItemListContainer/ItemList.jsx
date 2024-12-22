@@ -1,36 +1,22 @@
 import { useState,useEffect } from "react";
 import {getProducts,} from '../../firebase/firebase';
-import Item from './Item';
-
-
-
+import ItemListContainer from "./ItemListContainer";
 
 
 export default function ItemListContainer(){
  const[myProds, setMyProds] = useState([]);
- const [error, setError] = useState(null); 
 }
 
 
 
- useEffect(() =>{
-  setLoading(true);
- getProducts()
- .then((products) => {
-setMyProds(products); 
-})
-.catch((error) => {
-  console.error ('Error al cargar los productos', error);
-});
-}, []);
+ useEffect(() =>{ getProducts().then((products) => setMyProds(products));
+ }, []);
+
    
 return (
-  <>  {myProds.length > 0 ? (
-    myProds.map((prod) => <Item key={prod.id} prod={prod} />)
-  ):(
-    <p>No hay productos</p>
-  )}
-</>
-);
+  <>  {myProds &&
+    myProds.map((prod) => <Item key={prod.id} prod={prod} />)}
+ </>
+)
 
  

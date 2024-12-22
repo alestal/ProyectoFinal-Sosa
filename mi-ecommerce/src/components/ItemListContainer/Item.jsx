@@ -20,7 +20,7 @@ export default function Item(){
   });
   }, [id]); 
   
- /* getSingleProduct(id).then((product) => setSingleProd(product)); */
+
  
     return (
       <>
