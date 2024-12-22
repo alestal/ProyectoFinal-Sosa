@@ -2,8 +2,8 @@ import { useState } from 'react';
 import './App.css';
 import {NavBar} from'./components/NavBar/NavBar';
 import {CartWidget} from './components/NavBar/CartWidget';
-import ItemList from'./components/ItemListContainer/ItemList';;
-import Item from './components/ItemListContainer/Item'
+import {ItemList} from'./components/ItemListContainer/ItemList';
+import {Item} from './components/ItemListContainer/Item';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import CartItem from './components/Cart/CartItem';
 import  CheckoutForm from './components/Cart/CheckoutForm'
@@ -27,7 +27,7 @@ import { CartContext } from './context/CartContext';
           <NavBar />
           <Routes>
    
-      <Route exact path ='/' element={<ItemListContainer />} />
+      <Route exact path ='/' element={<ItemList />} />
       <Route exact path ='/ maquillaje' element={<ItemListContainer category='maquillaje' />} />
       <Route exact path ='/ accesorios' element={<ItemListContainer category='accesorios' />} />
       <Route exact path ='/ perfumes' element={<ItemListContainer category='perfumes' />} />

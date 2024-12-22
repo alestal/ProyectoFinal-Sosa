@@ -1,16 +1,27 @@
 import React from 'react';
-import {Link, useEffect} from 'react-router-dom';
+import {Link,useState, useEffect, useParams} from 'react-router-dom';
 import { getSingleProduct } from '../../firebase/firebase';
-import Item from "./Item";
+
+
 
 export default function Item(){
-
-  getSingleProduct(id).then((product) => setSingleProd(product)); 
- 
-  useEffect(() => {
-}, []);
+  
+  const [singleProd, setSingleProd] = useState(null)
+  const {id} = useParams();
 
   
+  useEffect(() => {
+  getSingleProducts(id)
+  .then((product) => {
+  setSingleProd(product);
+   })
+   .catch ((error) => {
+    console.error('Error', error);
+  });
+  }, [id]); 
+  
+ /* getSingleProduct(id).then((product) => setSingleProd(product)); */
+ 
     return (
       <>
       <div className="item-card">

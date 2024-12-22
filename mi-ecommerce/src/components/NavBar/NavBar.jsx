@@ -1,7 +1,7 @@
 import {link} from 'react-router-dom';
 import React from 'react';
-import  "./CartWidget" 
-import ' ./public/logo/logo-pefumeria';
+
+
 
 export const NavBar = () => {
   

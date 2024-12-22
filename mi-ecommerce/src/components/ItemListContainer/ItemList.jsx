@@ -1,39 +1,36 @@
 import { useState,useEffect } from "react";
-import {getProducts,
-  getSingleProduct,
-  filterProductsByCategory,} from '../../firebase/firebase'
+import {getProducts,} from '../../firebase/firebase';
+import Item from './Item';
 
-import ItemListContainer from "./ItemListContainer";
 
-export default function ProductsComponents(){
-  const [singleProd, setSingleProd] = useState(null);
-  const[myProds, setMyProds] = useState([]);
-  const [category, setCategory] = useState('')
+
+
+
+export default function ItemListContainer(){
+ const[myProds, setMyProds] = useState([]);
+ const [error, setError] = useState(null); 
 }
 
 
-useEffect(() => {
-}, [category]);
- /* getSingleProduct('Q5MXI6mELJU7AAsZeUqe')..then((product) =>
-    setSingleProd(product)); */
 
-/* getProducts().then((products) => setMyProds(products));*/
-
-/*filterProductsByCategory(category).then((products) => setMyProds(products));
-}, []);*/
-
-
+ useEffect(() =>{
+  setLoading(true);
+ getProducts()
+ .then((products) => {
+setMyProds(products); 
+})
+.catch((error) => {
+  console.error ('Error al cargar los productos', error);
+});
+}, []);
+   
 return (
-<>
-
-  {singleProd && (
-    <p>
-    Prodcucto: {singleProd.name} - Category: {singleProd.category} - Precio ${singleProd.price}
-    </p>
+  <>  {myProds.length > 0 ? (
+    myProds.map((prod) => <Item key={prod.id} prod={prod} />)
+  ):(
+    <p>No hay productos</p>
   )}
-
-  {myProds &&
-    myProds.map((prod) => <ProductCard key={prod.id} prod={prod} />)}
 </>
 );
 
+ 
