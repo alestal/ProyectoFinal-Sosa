@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import ItemList from './ItemList';
+import filterProductsByCategory from '../../firebase/firebase'
 
 const ItemListContainer = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [products, setProducts] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState('');
+  
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
@@ -13,18 +15,11 @@ const ItemListContainer = () => {
     }, 3000);
   }, []);
 
-  const filteredProducts = products.filter(product =>
-    selectedCategory ? product.name.toLowerCase().includes(selectedCategory.toLowerCase()) : true
-  );
+  useEffect(() => {
+  filterProductsByCategory(category).then((products) => setMyProds(products));
+}, []);
 
 
-    if (loading) {
-      return <p>Cargando productos...</p>;
-    }
-  
-    if (error) {
-      return <p>{error}</p>;
-    }
   
     return (
       <>

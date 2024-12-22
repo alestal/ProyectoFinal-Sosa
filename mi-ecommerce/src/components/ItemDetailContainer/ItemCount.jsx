@@ -24,7 +24,7 @@ return (
       <button onClick={handleIncrement}>+</button>
     </div>
     <button onClick={handleAdd}>
-      Agregar al carrito
+      Agregar al Carrito
     </button>
   </div>
 );

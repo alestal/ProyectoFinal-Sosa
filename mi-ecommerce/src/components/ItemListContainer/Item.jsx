@@ -1,21 +1,28 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import {Link, useEffect} from 'react-router-dom';
+import { getSingleProduct } from '../../firebase/firebase';
+import Item from "./Item";
 
+export default function Item(){
 
+  getSingleProduct(id).then((product) => setSingleProd(product)); 
+ 
+  useEffect(() => {
+}, []);
 
-const Item = ({product}) => {
-  return (
-    <>
-    <div className="item-card">
-    <h3>{product.name} - {product.id}</h3>
-    <img src={product.img} alt={product.name} />
-    <p>${product.price}</p>
-    <button className=" ver mas detalles">
-    <Link to={`/product/${product.id}`}>Ver Mas Detalles</Link>
-    </button>
-</div>
-</>
-  );
-};
+  
+    return (
+      <>
+      <div className="item-card">
+      <h3>{product.name} - {product.id}</h3>
+      <img src={product.img} alt={product.name} />
+      <p>${product.price}</p>
+      <button className="detalles">
+      <Link to={`/product/${product.id}`}>Ver Mas Detalles</Link>
+      </button>
+  </div>
+  </>
+    );
+  };
+  
 
-export default Item;
