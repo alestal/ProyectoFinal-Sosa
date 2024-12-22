@@ -6,12 +6,14 @@ import ItemList from'./components/ItemListContainer/ItemList';;
 import Item from './components/ItemListContainer/Item'
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import CartItem from './components/Cart/CartItem';
-import CheckoutForm from '/components/Cart/CheckoutForm';
+import  CheckoutForm from './components/Cart/CheckoutForm'
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import ItemDetail from './components/ItemDetailContainer/ItemDetail';
-import ItemCount from './components/ItemDetailContainer/ItemCount';
-import { ProductProvaider } from './Context/ProductContext';
-import { CartProvider } from './context/CartContext';
+import ItemCount from './components/ItemDetailContainer/ItemCount'
+/*import { ProductProvaider} from './context/ProductContext';*/
+/*import { CartProvider } from './context/CartContext';*/
+import firebase from './firebase/firebase'
+import { CartContext } from './context/CartContext';
 
 
 
@@ -31,7 +33,7 @@ import { CartProvider } from './context/CartContext';
       <Route exact path ='/ perfumes' element={<ItemListContainer category='perfumes' />} />
       <Route exact path="/product/:name" element={<ItemDetail />} />
       <Route exact path="/cart" element={<CartItem />} />
-      <Route exact path="/checkout" element={<CheckoutForm />} />
+      <Route exact path="/checkoutform" element={<CheckoutForm />} />
       <Route exact path ='*' element={<h1>404 not found </h1>} />
        
     </Routes>

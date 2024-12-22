@@ -1,39 +1,39 @@
 import { useState,useEffect } from "react";
-import {getProducts,  getSingleProduct} from '../firebase/firebase';
-/*import{ filterProductsByCategory} from '../firebase/firebase';*/
+import {getProducts,
+  getSingleProduct,
+  filterProductsByCategory,} from '../../firebase/firebase'
+
 import ItemListContainer from "./ItemListContainer";
 
 export default function ProductsComponents(){
   const [singleProd, setSingleProd] = useState(null);
   const[myProds, setMyProds] = useState([]);
+  const [category, setCategory] = useState('')
 }
 
 
 useEffect(() => {
-  getSingleProduct('Q5MXI6mELJU7AAsZeUqe')  
-    .then((product) => setSingleProd (product))
-    .catch((error) => console.error("Error al obtener el producto:", error));
-}, []); 
+}, [category]);
+ /* getSingleProduct('Q5MXI6mELJU7AAsZeUqe')..then((product) =>
+    setSingleProd(product)); */
 
+/* getProducts().then((products) => setMyProds(products));*/
 
-useEffect(() => {
-  getProducts()
-    .then((products) => setMyProds(products))
-    .catch((error) => console.error("Error al obtener los productos:", error));
-}, []); 
+/*filterProductsByCategory(category).then((products) => setMyProds(products));
+}, []);*/
+
 
 return (
 <>
-  {singleProd && (
 
+  {singleProd && (
     <p>
-    Prodcucto: {singleProd.name} - Imagen: <img src={singleProd.img} alt={singleProd.name} /> - Precio ${singleProd.price}
+    Prodcucto: {singleProd.name} - Category: {singleProd.category} - Precio ${singleProd.price}
     </p>
   )}
 
-
-{myProds && myProds.map ((prod) => ( <ItemListContainer key = {prod.id} prod={prod} />) )}
-
+  {myProds &&
+    myProds.map((prod) => <ProductCard key={prod.id} prod={prod} />)}
 </>
 );
 

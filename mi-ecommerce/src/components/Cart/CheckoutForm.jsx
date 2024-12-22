@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
-import { CartContext } from '../context/CartContext';
-import { sendOrder } from '../firebase/firebase';
+import { CartContext } from '../../context/CartContext'
+import { sendOrder } from '../../firebase/firebase';
 
 const CheckoutForm = () => {
     const { cart, clearCart, calculateTotal } = useContext(CartContext);

@@ -1,75 +1,43 @@
-
-import React, { useEffect, useState } from 'react';
-import ItemList from './ItemList'; 
-import { getProducts } from '../../firebase/firebase';
+import React, { useState, useEffect } from 'react';
+import ItemList from './ItemList';
 
 const ItemListContainer = () => {
-  const [products, setProducts] = useState([]);
-  const [filteredProducts, setFilteredProducts] = useState([]);
-  const [selectedCategory, setSelectedCategory] = useState('');
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
+  const [products, setProducts] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState('');
   useEffect(() => {
-    getProducts()
-      .then(res => {
-        setProducts(res); 
-        setFilteredProducts(res); 
-        setLoading(false);
-      })
-    }, []);
-  }
+    setTimeout(() => {
+      setLoading(false);
+      setProducts([]);
+    }, 3000);
+  }, []);
 
-  useEffect(() => {
-    if (selectedCategory === '') {
-      setFilteredProducts(products);
-    } else {
-      const filtered = products.filter(product =>
-        product.category.toLowerCase() === selectedCategory.toLowerCase()
-      );
-      setFilteredProducts(filtered);
+  const filteredProducts = products.filter(product =>
+    selectedCategory ? product.name.toLowerCase().includes(selectedCategory.toLowerCase()) : true
+  );
+
+
+    if (loading) {
+      return <p>Cargando productos...</p>;
     }
-  }, [selectedCategory, products]);
   
-  if (loading) {
-    return <p>Cargando productos...</p>;
-  }
+    if (error) {
+      return <p>{error}</p>;
+    }
+  
+    return (
+      <>
+        <button onClick={() => setSelectedCategory('maquillaje')}>Maquillaje</button>
+        <button onClick={() => setSelectedCategory('accesorios')}>Accesorios</button>
+        <button onClick={() => setSelectedCategory('perfumes')}>Perfumes</button>
+        <button onClick={() => setSelectedCategory('')}>Ver todos</button>
+        
+        <ItemList products={filteredProducts} />
+      </>
+    );
+  };
 
-  if (error) {
-    return <p>{error}</p>;
-  }
-
-  return (
-  <>
-   <button onClick={() => setSelectedCategory('maquillaje')}>Maquillaje</button>
-   <button onClick={() => setSelectedCategory('accesorios')}>Accesorios</button>
-   <button onClick={() => setSelectedCategory('perfumes')}>Perfumes</button>   
-   <button onClick={() => setSelectedCategory('')}></button> 
-   
-
-<ItemList products={filteredProducts} />
-</>
-);
-
-
-export default ItemListContainer;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+ export default ItemListContainer;
+      
+          

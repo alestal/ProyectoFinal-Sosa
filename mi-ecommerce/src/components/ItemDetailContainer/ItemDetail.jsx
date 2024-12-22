@@ -1,10 +1,10 @@
 import React from 'react';
 import {useParams} from 'react-router-dom';
 import { useState,useEffect } from "react";
-import { getProducts} from '../firebase/firebase';
-import{  getSingleProduct} from'../firebase/firebase';
-import{  filterProductsByCategory} from '../firebase/firebase';
-import ItemCount from '../ItemCount/ItemCount';
+import { getProducts} from '../../firebase/firebase';
+import{  getSingleProduct} from'../../firebase/firebase';
+import{  filterProductsByCategory} from '../../firebase/firebase';
+import ItemCount from './ItemCount';
 
 
 const ItemDetail = () => {
