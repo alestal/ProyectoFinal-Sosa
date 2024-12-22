@@ -3,6 +3,20 @@ import { initializeApp } from "firebase/app";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
+import{
+  getFirestore,
+  doc,
+  getDoc,
+  getDocs,
+  collection,
+  query,
+  where,
+  addDoc,
+  updateDoc,
+  writeBatch,
+}from 'firebase/firestore';
+
+
 // Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyBHjip2mjWr8O4uhw4fp5BQB8O0gI48r8g",
@@ -13,9 +27,8 @@ const firebaseConfig = {
   appId: "1:14568600013:web:6d22b88b8eb5a8ee6a5484"
 };
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
 
+const app = initializeApp(firebaseConfig);
 
 const db = getFirestore(app);
 
@@ -89,3 +102,5 @@ export async function getSingleProduct(id) {
           console.error('Error al agregar el documento nuevo ', error);
         }
       }
+
+     
