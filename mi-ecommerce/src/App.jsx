@@ -3,10 +3,7 @@ import './App.css';
 import {NavBar} from'./components/NavBar/NavBar';
 import {CartWidget} from './components/NavBar/CartWidget';
 import ItemList from'./components/ItemListContainer/ItemList';;
-
-
-import Item from './components/ItemListContainer/Item';
-
+import Item from './components/ItemListContainer/Item'
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import CartItem from './components/Cart/CartItem';
 import CheckoutForm from '/components/Cart/CheckoutForm';
@@ -15,8 +12,6 @@ import ItemDetail from './components/ItemDetailContainer/ItemDetail';
 import ItemCount from './components/ItemDetailContainer/ItemCount';
 import { ProductProvaider } from './Context/ProductContext';
 import { CartProvider } from './context/CartContext';
-
-
 
 
 
