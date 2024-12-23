@@ -1,13 +1,14 @@
 import React from 'react';
-import {Link,useState, useEffect, useParams} from 'react-router-dom';
+import {Link,useState, useEffect} from 'react-router-dom';
 import { getSingleProduct } from '../../firebase/firebase';
-
+import style from './css/style';
+import Item from './Item'
 
 
 export default function Item(){
   
   const [singleProd, setSingleProd] = useState(null)
-  /*const {id} = useParams();*/
+
 
   
   useEffect(() => {
