@@ -31,7 +31,7 @@ export default function Item(){
       <button className="btn ">
       <Link to={`/product/${product.id}`}>Ver Mas Detalles</Link>
       </button>
-  </div>
+</div>
   </>
     );
   };

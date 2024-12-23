@@ -26,7 +26,7 @@ export default function CheckoutForm({ onSubmit }) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className='form' onSubmit={handleSubmit}>
       <div>
         <label>Nombre Completo:</label>
         <input
@@ -57,7 +57,7 @@ export default function CheckoutForm({ onSubmit }) {
           required
         />
       </div>
-      <button>Finalizar Compra</button>
+      <button className='btnform'>Finalizar Compra</button>
     </form>
   );
 }
