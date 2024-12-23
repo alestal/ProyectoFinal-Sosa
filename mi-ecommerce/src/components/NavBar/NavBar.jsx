@@ -7,6 +7,7 @@ export const NavBar = () => {
   
   return (
   <>
+ <header>
 <nav>
     <ul>
           <li>
@@ -14,7 +15,7 @@ export const NavBar = () => {
  <button>       
 < Link to = "/">   
 Perfumeria Olivia 
-<img src="./logo/logo-perfumeria" alt="logo perfumeria" />       
+<img class= 'header img' src="./logo/logo-perfumeria" alt="logo-perfumeria" />       
 </Link>
 </button>      
 <button>< Link to='/maquillaje'> Maquillaje</Link></button>
@@ -24,6 +25,7 @@ Perfumeria Olivia
   </li> 
  </ul>
 </nav>
+</header> 
 </>
     )
 }

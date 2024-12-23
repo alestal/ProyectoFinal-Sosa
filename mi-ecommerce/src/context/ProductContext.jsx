@@ -16,12 +16,14 @@ export function ProductProvaider ({children}) {
       }, []);  
 
 return (
+
+  <div class= "card">
     <ProductContext.Provider value ={ [products,setProducts,loading]}>
    
     {children}
 
 </ProductContext.Provider>
-
+</div>
 );
 
 }

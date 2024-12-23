@@ -7,15 +7,16 @@ export default function ItemListContainer(){
  const[myProds, setMyProds] = useState([]);
 }
 
+useEffect(() => {getProducts().then((products) => setMyProds(products));
 
+}, []);  
 
- useEffect(() =>{ getProducts().then((products) => setMyProds(products));
- }, []);
-
-   
+  
 return (
-  <>  {myProds &&
-    myProds.map((prod) => <Item key={prod.id} prod={prod} />)}
+  <>  
+  {myProds &&
+    myProds.map((prod) => <Item key={prod.id} prod={prod} />)
+    }
  </>
 )
 
