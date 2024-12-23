@@ -1,9 +1,9 @@
 import {link} from 'react-router-dom';
 import React from 'react';
+import '../../css/style.css';
 
 
-
-export const NavBar = () => {
+ const NavBar = () => {
   
   return (
   <>
@@ -29,3 +29,5 @@ Perfumeria Olivia
 </>
     )
 }
+
+export default NavBar;

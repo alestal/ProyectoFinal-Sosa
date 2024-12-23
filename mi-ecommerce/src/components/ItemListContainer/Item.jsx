@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link,useState, useEffect} from 'react-router-dom';
 import { getSingleProduct } from '../../firebase/firebase';
-import style from './css/style';
+import '../../css/style.css';
 import Item from './Item'
 
 

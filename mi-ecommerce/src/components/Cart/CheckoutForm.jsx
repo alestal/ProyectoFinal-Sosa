@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { CartContext } from '../../context/CartContext'
 import { sendOrder } from '../../firebase/firebase';
+import '../../css/style.css';
 
        
 import React, { useState } from 'react';
